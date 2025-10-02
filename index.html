@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>1주년 기념 영상편지</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Nanum Pen Script', cursive;
+      background: radial-gradient(circle at 20% 20%, #fff6e6, #ffe1a3 50%, #ffd37a);
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+
+    .card {
+      position: relative;
+      width: min(800px, 95vw);
+      padding: 44px 40px 56px;
+      text-align: center;
+      color: #3b2b1a;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(2px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.16);
+      animation: fadeIn 1.4s ease;
+      z-index: 2;
+    }
+
+    .ornament-top, .ornament-bottom {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      width: 92%; height: 54px; pointer-events: none;
+    }
+    .ornament-top { top: -10px; }
+    .ornament-bottom { bottom: -14px; transform: translateX(-50%) scaleY(-1); }
+
+    h1 {
+      font-size: clamp(28px, 5.5vw, 48px);
+      margin-bottom: 12px;
+      color: #e84159;
+      text-shadow: 0 1px 0 #fff;
+      animation: pulse 2.8s ease-in-out infinite;
+    }
+
+    p {
+      font-size: clamp(18px, 3.4vw, 30px);
+      line-height: 1.6;
+      margin: 6px 0;
+      opacity: 0; transform: translateY(18px);
+      animation: fadeUp .9s ease forwards;
+    }
+    p:nth-of-type(1){ animation-delay: .6s; }
+    p:nth-of-type(2){ animation-delay: 1.2s; }
+    p:nth-of-type(3){ animation-delay: 1.8s; }
+    p:nth-of-type(4){ animation-delay: 2.4s; }
+    p:nth-of-type(5){ animation-delay: 3.0s; }
+
+    .float-layer { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 1; }
+    .float { position: absolute; bottom: -40px; opacity: .8; animation: rise 10s linear infinite; }
+    .float svg { filter: drop-shadow(0 3px 3px rgba(0,0,0,.12)); }
+
+    .controls { margin-top: 16px; display: inline-flex; gap: 10px; }
+    .btn {
+      font-family: inherit; font-size: 20px; padding: 8px 16px;
+      border-radius: 999px; border: 0; background: #ff7f50; color: #fff;
+      box-shadow: 0 8px 16px rgba(255,127,80,.35);
+      cursor: pointer; transition: transform .15s ease, box-shadow .15s ease, background .2s;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 18px rgba(255,127,80,.45); }
+    .btn.secondary { background: #e84159; box-shadow: 0 8px 16px rgba(232,65,89,.35); }
+
+    @keyframes fadeIn { from{opacity:0; transform: translateY(10px)} to{opacity:1; transform: translateY(0)} }
+    @keyframes fadeUp { to{ opacity:1; transform: translateY(0)} }
+    @keyframes pulse { 0%,100%{ transform: scale(1)} 50%{ transform: scale(1.03)} }
+    @keyframes rise {
+      0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+      10% { opacity: .9; }
+      100% { transform: translateY(-120vh) translateX(var(--drift, 40px)) rotate(360deg); opacity: 0; }
+    }
+
+    audio { display: none; }
+  </style>
+</head>
+<body>
+
+  <div class="float-layer" aria-hidden="true" id="floatLayer"></div>
+
+  <div class="card">
+    <svg class="ornament-top" viewBox="0 0 600 60" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20,30 C80,5 120,55 180,30 C240,5 280,55 340,30 C400,5 440,55 520,28"
+            fill="none" stroke="#f6a3b1" stroke-width="3" stroke-linecap="round"/>
+      <g fill="#e84159">
+        <path d="M150,25 c-6,-10 8,-16 12,-6 c4,-10 18,-4 12,6 c-5,9 -12,12 -12,12 s-7,-3 -12,-12z"/>
+        <path d="M450,25 c-6,-10 8,-16 12,-6 c4,-10 18,-4 12,6 c-5,9 -12,12 -12,12 s-7,-3 -12,-12z"/>
+      </g>
+      <g transform="translate(300,26)">
+        <circle r="3" fill="#f1c40f"/>
+        <g fill="#ffb6c1">
+          <ellipse rx="2.8" ry="6" transform="rotate(0) translate(0,-7)"/>
+          <ellipse rx="2.8" ry="6" transform="rotate(45) translate(0,-7)"/>
+          <ellipse rx="2.8" ry="6" transform="rotate(90) translate(0,-7)"/>
+          <ellipse rx="2.8" ry="6" transform="rotate(135) translate(0,-7)"/>
+        </g>
+      </g>
+    </svg>
+
+    <h1>💕 사랑하는 아내에게 💕</h1>
+    <p>오늘은 간호조무사로 일한 지 꼭 1년 되는 날</p>
+    <p>낮에도 밤에도 정말 고생 많았어</p>
+    <p>항상 가족을 위해 애써줘서 너무 고마워</p>
+    <p>앞으로는 내가 더 든든하게 곁을 지켜줄게</p>
+    <p>사랑해요 ❤️</p>
+
+    <div class="controls">
+      <button class="btn" id="playBtn">▶ 음악 재생</button>
+      <button class="btn secondary" id="pauseBtn">⏸ 일시정지</button>
+    </div>
+
+    <svg class="ornament-bottom" viewBox="0 0 600 60" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20,30 C80,5 120,55 180,30 C240,5 280,55 340,30 C400,5 440,55 520,28"
+            fill="none" stroke="#f6a3b1" stroke-width="3" stroke-linecap="round"/>
+      <g fill="#e84159">
+        <path d="M150,25 c-6,-10 8,-16 12,-6 c4,-10 18,-4 12,6 c-5,9 -12,12 -12,12 s-7,-3 -12,-12z"/>
+        <path d="M450,25 c-6,-10 8,-16 12,-6 c4,-10 18,-4 12,6 c-5,9 -12,12 -12,12 s-7,-3 -12,-12z"/>
+      </g>
+      <g transform="translate(300,26)">
+        <circle r="3" fill="#f1c40f"/>
+        <g fill="#ffb6c1">
+          <ellipse rx="2.8" ry="6" transform="rotate(0) translate(0,-7)"/>
+          <ellipse rx="2.8" ry="6" transform="rotate(45) translate(0,-7)"/>
+          <ellipse rx="2.8" ry="6" transform="rotate(90) translate(0,-7)"/>
+          <ellipse rx="2.8" ry="6" transform="rotate(135) translate(0,-7)"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <audio id="bgm" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const COLORS = ['#e84159', '#ff9aa2', '#ffd1dc', '#fce38a', '#95e1d3'];
+    const floatLayer = document.getElementById('floatLayer');
+    function createFloat(i){
+      const el = document.createElement('div');
+      el.className = 'float';
+      el.style.left = Math.random()*100 + 'vw';
+      el.style.setProperty('--drift', (Math.random()*160 - 80) + 'px');
+      el.style.animationDuration = (8 + Math.random()*6) + 's';
+      el.style.animationDelay = (Math.random()*4) + 's';
+      const type = Math.random() > 0.5 ? 'heart' : 'flower';
+      const color = COLORS[Math.floor(Math.random()*COLORS.length)];
+      if(type === 'heart'){
+        el.innerHTML = `<svg width="26" height="24" viewBox="0 0 26 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13 22s-9-5.7-11-10.5C0 6.5 3 3 6.5 3 9 3 11 4.7 13 7c2-2.3 4-4 6.5-4C23 3 26 6.5 24 11.5 22 16.3 13 22 13 22z" fill="`+color+`" opacity="0.9"/>
+        </svg>`;
+      } else {
+        el.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="3" fill="`+color+`"/>
+          <g fill="`+color+`" opacity=".85">
+            <ellipse cx="12" cy="4" rx="3" ry="5"/>
+            <ellipse cx="20" cy="12" rx="5" ry="3"/>
+            <ellipse cx="12" cy="20" rx="3" ry="5"/>
+            <ellipse cx="4" cy="12" rx="5" ry="3"/>
+          </g>
+        </svg>`;
+      }
+      floatLayer.appendChild(el);
+    }
+    for(let i=0;i<22;i++) createFloat(i);
+
+    const audio = document.getElementById('bgm');
+    const playBtn = document.getElementById('playBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+
+    async function tryAutoplay(){
+      try {
+        await audio.play();
+      } catch(e) {
+        playBtn.textContent = '▶ 음악 켜기';
+      }
+    }
+    tryAutoplay();
+
+    playBtn.addEventListener('click', async () => {
+      try { await audio.play(); } catch(e){}
+    });
+    pauseBtn.addEventListener('click', () => audio.pause());
+  </script>
+</body>
+</html>
